@@ -65,7 +65,7 @@ export default function Home() {
                 href={`/game/${category.name.toLowerCase()}`}
                 key={category.name}
               >
-                <Card className="hover:bg-gradient-to-r from-primary to-purple-500 hover:text-white transition-colorstransition-shadow w-29 h-29 sm:w-40 sm:h-40 justify-center">
+                <Card className="hover:bg-gradient-to-r from-primary to-purple-500 hover:text-white transition-colorstransition-shadow justify-center">
                   <CardHeader className="text-center flex flex-col items-center gap-2">
                     <category.icon className="text-purple-500 w-6 h-6 sm:w-8 sm:h-8" />
                     <CardTitle className="text-lg">{category.name}</CardTitle>
