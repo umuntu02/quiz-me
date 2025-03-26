@@ -45,7 +45,7 @@ export default function Home() {
         <Header />
 
         <section className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-lg sm:text-4xl font-bold mb-4">
             Welcome{" "}
             <span className="font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
               {!isAuthenticated ? "to QuizMe" : user?.name}
@@ -65,10 +65,12 @@ export default function Home() {
                 href={`/game/${category.name.toLowerCase()}`}
                 key={category.name}
               >
-                <Card className="hover:bg-gradient-to-r from-primary to-purple-500 hover:text-white transition-colorstransition-shadow justify-center">
+                <Card className="hover:bg-gradient-to-r from-primary to-purple-500 hover:text-white transition-colorstransition-shadow justify-center py-4 sm:py-6">
                   <CardHeader className="text-center flex flex-col items-center gap-2">
                     <category.icon className="text-purple-500 w-6 h-6 sm:w-8 sm:h-8" />
-                    <CardTitle className="text-lg">{category.name}</CardTitle>
+                    <CardTitle className="text-sm sm:text-lg">
+                      {category.name}
+                    </CardTitle>
                   </CardHeader>
                 </Card>
               </Link>

@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,26 +10,29 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { useAuth } from "@/hooks/use-auth"
-import Link from "next/link"
+} from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/hooks/use-auth";
+import Link from "next/link";
 
 export function UserNav() {
-  const { user, signOut, isAuthenticated } = useAuth()
+  const { user, signOut, isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
     return (
-      <Button asChild>
-        <Link href="/login">Sign In</Link>
-      </Button>
-    )
+      <Link
+        href="/login"
+        className="bg-gradient-to-b from-primary to-purple-500 text-transparent bg-clip-text text-sm sm:text-lg"
+      >
+        Sign In
+      </Link>
+    );
   }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-          <Avatar className="h-10 w-10">
+        <Button variant="ghost" className="relative h-10 sm:w-10 rounded-full">
+          <Avatar className="h-10 sm:w-10">
             <AvatarFallback className="bg-primary/10 text-primary">
               {user?.name
                 ?.split(" ")
@@ -43,7 +46,9 @@ export function UserNav() {
         <DropdownMenuLabel>
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{user?.name}</p>
-            <p className="text-xs leading-none text-muted-foreground">{user?.email}</p>
+            <p className="text-xs leading-none text-muted-foreground">
+              {user?.email}
+            </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -62,6 +67,5 @@ export function UserNav() {
         <DropdownMenuItem onClick={signOut}>Log out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
-
