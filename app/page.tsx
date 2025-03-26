@@ -45,18 +45,18 @@ export default function Home() {
         <Header />
 
         <section className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-lg sm:text-4xl font-bold mb-4">
+          <h2 className="text-xl sm:text-4xl font-bold mb-4">
             Welcome{" "}
             <span className="font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
               {!isAuthenticated ? "to QuizMe" : user?.name}
             </span>
           </h2>
-          <p className="text-sm sm:text-xl text-muted-foreground mb-1">
+          <p className="text-sm sm:text-xl text-muted-foreground mb-4">
             Test your knowledge solo or challenge your friends in multiplayer
             mode
           </p>
 
-          <h2 className="text-xl font-bold mb-2 text-center">
+          <h2 className="text-lg font-bold mb-4 text-center">
             choose a category
           </h2>
           <div className="grid grid-cols-3 gap-1 md:grid-cols-3 lg:grid-cols-4 sm:gap-4">

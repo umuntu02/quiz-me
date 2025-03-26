@@ -31,8 +31,8 @@ export function UserNav() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-10 sm:w-10 rounded-full">
-          <Avatar className="h-10 sm:w-10">
+        <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+          <Avatar className="h-10 w-10">
             <AvatarFallback className="bg-primary/10 text-primary">
               {user?.name
                 ?.split(" ")
