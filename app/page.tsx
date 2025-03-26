@@ -51,15 +51,15 @@ export default function Home() {
               {!isAuthenticated ? "to QuizMe" : user?.name}
             </span>
           </h2>
-          <p className="text-sm sm:text-xl text-muted-foreground mb-8">
+          <p className="text-sm sm:text-xl text-muted-foreground mb-1">
             Test your knowledge solo or challenge your friends in multiplayer
             mode
           </p>
 
-          <h2 className="text-2xl font-bold mb-5 text-center">
+          <h2 className="text-xl font-bold mb-2 text-center">
             choose a category
           </h2>
-          <div className="grid grid-cols-3 gap-4 md:grid-cols-3 lg:grid-cols-4 sm:gap-4">
+          <div className="grid grid-cols-3 gap-1 md:grid-cols-3 lg:grid-cols-4 sm:gap-4">
             {categories.map((category) => (
               <Link
                 href={`/game/${category.name.toLowerCase()}`}
