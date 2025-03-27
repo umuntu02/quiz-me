@@ -115,7 +115,7 @@ export default function LeaderboardPage() {
         <h1 className="text-3xl font-bold mb-6 text-center">Leaderboard</h1>
 
         <div className="mb-6">
-          <BAckArrow lien="/" />
+          <BAckArrow />
           <Card>
             <CardHeader>
               <div className="flex justify-between items-center">
