@@ -26,30 +26,30 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-background to-muted-foreground">
       <div className="container mx-auto p-2 sm:p-4">
         <Header />
-        <span className="flex mb-2">
-          <BAckArrow lien="/" />
-          <h2 className="text-2xl text-center sm:text-3xl font-bold w-full pr-7">
+        <span className="flex mb-0.5 sm:mb-2">
+          <BAckArrow />
+          <h2 className="text-xl text-center sm:text-3xl font-bold w-full pr-7">
             {displayName}
           </h2>
         </span>
 
-        <section className="max-w-4xl mx-auto text-center mb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <section className="max-w-4xl mx-auto text-center mb-6 sm:mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-7 sm:gap-6 sm:mb-12">
             <GameModeCard
               title="Solo Mode"
-              description="Challenge yourself with 10 questions on various topics"
+              description="Challenge yourself"
               icon="User"
               href="/game/solo"
             />
             <GameModeCard
               title="Multiplayer Mode"
-              description="Compete with up to 4 players in real-time"
+              description="Compete with others,max 4"
               icon="Users"
               href="/game/multiplayer"
             />
           </div>
 
-          <Card className="mb-8">
+          <Card className="py-3 mb-3 sm:py-6 sm:mb-12">
             <CardHeader>
               <CardTitle>Random Quiz</CardTitle>
               <CardDescription>

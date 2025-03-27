@@ -40,7 +40,7 @@ export default function Home() {
   const { user, isAuthenticated } = useAuth();
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background to-muted-foreground">
+    <main className="h-screen bg-gradient-to-b from-background to-muted-foreground">
       <div className="container mx-auto px-3 py-3">
         <Header />
 

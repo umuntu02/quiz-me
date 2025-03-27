@@ -1,11 +1,18 @@
 import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
 
-function BAckArrow({ lien }: { lien: string }) {
+function BAckArrow() {
+  const router = useRouter();
+
   return (
-    <Link href={lien} className="m-2">
-      <ArrowLeft className="w-6 h-6" />
-    </Link>
+    <Button
+      className="bg-transparent border-none text-primary"
+      variant="outline"
+      onClick={() => router.back()}
+    >
+      <ArrowLeft className="h-6 w-6 text-primary" />
+    </Button>
   );
 }
 

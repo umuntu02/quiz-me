@@ -33,7 +33,7 @@ export default function LoginPage() {
 
     try {
       await signIn(email, name);
-      router.push("/");
+      router.back();
     } catch (error) {
       console.error("Login error:", error);
     } finally {
@@ -46,7 +46,7 @@ export default function LoginPage() {
 
     try {
       await signInWithGoogle();
-      router.push("/");
+      router.back();
     } catch (error) {
       console.error("Google login error:", error);
     } finally {
@@ -59,7 +59,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <span className="flex">
-            <BAckArrow lien="/" />
+            <BAckArrow />
             <h1 className="text-3xl w-full text-center font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent pr-7">
               QuizMe
             </h1>

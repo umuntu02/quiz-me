@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -102,30 +103,33 @@ export default function SoloGamePage() {
 
   if (gameStatus === "finished") {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-b from-background to-muted">
-        <Card className="w-full max-w-md p-6 text-center">
-          <h1 className="text-3xl font-bold mb-6">Quiz Completed!</h1>
-          <div className="text-5xl font-bold mb-8 text-primary">
-            {score} / 100
-          </div>
+      <div className="flex-col p-4 bg-gradient-to-b from-background to-muted">
+        <Header />
+        <div className="h-screen flex items-center justify-centern bg-gradient-to-b from-background to-muted">
+          <Card className="w-full max-w-md p-6 text-center">
+            <h1 className="text-3xl font-bold mb-6">Quiz Completed!</h1>
+            <div className="text-5xl font-bold mb-8 text-primary">
+              {score} / 100
+            </div>
 
-          <p className="mb-6 text-lg">
-            You answered {score / 10} out of 10 questions correctly!
-          </p>
+            <p className="mb-6 text-lg">
+              You answered {score / 10} out of 10 questions correctly!
+            </p>
 
-          <div className="flex flex-col gap-4">
-            <Button onClick={() => router.push("/")}>Back to Home</Button>
-            <Button variant="outline" onClick={() => router.push("/game/solo")}>
-              Play Again
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={() => router.push("/leaderboard")}
-            >
-              View Leaderboard
-            </Button>
-          </div>
-        </Card>
+            <div className="flex flex-col gap-4">
+              <Button onClick={() => router.push("/")}>Back to Home</Button>
+              <Button variant="outline" onClick={() => router.back()}>
+                Play Again
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={() => router.push("/leaderboard")}
+              >
+                View Leaderboard
+              </Button>
+            </div>
+          </Card>
+        </div>
       </div>
     );
   }
@@ -135,10 +139,23 @@ export default function SoloGamePage() {
   return (
     <div className="min-h-screen flex flex-col p-4 bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto max-w-3xl flex-1 flex flex-col">
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-2">
-            <div>
-              Question {currentQuestionIndex + 1} of {questions.length}
+        <div className="mb-6">
+          <div className="flex grid-cols-3 justify-between items-center mb-3">
+            <div className="font-bold w-14 text-center">
+              {currentQuestionIndex + 1}/{questions.length}
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center">
+                <div
+                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:text-2xl font-bold ${
+                    timeLeft <= 3
+                      ? "text-red-500 bg-muted"
+                      : "bg-primary/10 text-primary"
+                  }`}
+                >
+                  {timeLeft}
+                </div>
+              </div>
             </div>
             <div className="font-bold">Score: {score}</div>
           </div>
@@ -148,17 +165,8 @@ export default function SoloGamePage() {
           />
         </div>
 
-        <Card className="flex-1 p-6 flex flex-col">
-          <div className="text-center mb-8">
-            <div className="text-sm text-muted-foreground mb-2">Time left</div>
-            <div className="flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold">
-                {timeLeft}
-              </div>
-            </div>
-          </div>
-
-          <h2 className="text-xl font-bold mb-8 text-center">
+        <Card className="flex-1 p-4 flex flex-col gap-2 sm:gap-4">
+          <h2 className="text-xl font-bold mb-5 text-center">
             {
               currentQuestion.text[
                 language as keyof typeof currentQuestion.text
@@ -166,13 +174,13 @@ export default function SoloGamePage() {
             }
           </h2>
 
-          <div className="grid gap-4 flex-1">
+          <div className="grid gap-2 sm:gap-4 flex-1">
             {currentQuestion.options[
               language as keyof typeof currentQuestion.options
             ].map((option, index) => (
               <button
                 key={index}
-                className={`p-4 rounded-lg border text-left transition-all ${
+                className={`px-4 py-1 rounded-lg border text-left transition-all ${
                   selectedAnswer === index
                     ? index === currentQuestion.correctAnswer
                       ? "bg-green-100 border-green-500 dark:bg-green-900/30 dark:border-green-500"
